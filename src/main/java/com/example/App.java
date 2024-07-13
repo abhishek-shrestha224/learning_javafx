@@ -8,19 +8,21 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
-/**
- * JavaFX App
- */
 public class App extends Application {
 
     @Override
     public void start(Stage stage) throws IOException {
 
-        Parent root = FXMLLoader.load(getClass().getResource("/views/App.fxml"));
-        Scene scene = new Scene(root);
-        stage.setScene(scene);
+        try {
+            Parent root = FXMLLoader.load(getClass().getResource("/views/App.fxml"));
+            Scene scene = new Scene(root);
+            scene.getStylesheets().add(getClass().getResource("/styles/app.css").toExternalForm());
+            stage.setScene(scene);
 
-        stage.show();
+            stage.show();
+        } catch (IOException err) {
+            System.out.println(err.getMessage());
+        }
     }
 
     public static void main(String[] args) {

@@ -1,0 +1,10 @@
+.root {
+  -fx-background-color: #9b9aab;
+}
+#myCircle {
+}
+.button {
+  -fx-font-family: "Lucida Console";
+  -fx-font-size: 18;
+  -fx-text-fill: #fff;
+}
