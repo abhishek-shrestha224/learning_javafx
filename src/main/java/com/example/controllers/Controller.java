@@ -1,36 +1,27 @@
 package com.example.controllers;
 
-import javafx.fxml.FXML;
-import javafx.scene.shape.Circle;
+import java.io.IOException;
+
+import javafx.event.ActionEvent;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.stage.Stage;
 
 public class Controller {
 
-  @FXML
-  private Circle myCircle;
-  private double x, y;
+  private Stage stage;
+  private Scene scene;
+  private Parent root;
 
-  @FXML
-  public void up() {
-    System.out.println("UP");
-    myCircle.setCenterY(y -= 1);
-  }
+  public void switchScene(ActionEvent event, String sceneName) throws IOException {
+    root = FXMLLoader.load(getClass().getResource(sceneName));
+    stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+    scene = new Scene(root);
+    stage.setScene(scene);
 
-  @FXML
-  public void down() {
-    System.out.println("DOWN");
-    myCircle.setCenterY(y += 1);
-  }
-
-  @FXML
-  public void left() {
-    System.out.println("LEFT");
-    myCircle.setCenterX(x -= 1);
-  }
-
-  @FXML
-  public void right() {
-    System.out.println("RIGHT");
-    myCircle.setCenterX(x += 1);
+    stage.show();
   }
 
 }

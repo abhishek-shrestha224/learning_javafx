@@ -14,9 +14,9 @@ public class App extends Application {
     public void start(Stage stage) throws IOException {
 
         try {
-            Parent root = FXMLLoader.load(getClass().getResource("/views/App.fxml"));
+            Parent root = FXMLLoader.load(getClass().getResource("/views/Home.fxml"));
             Scene scene = new Scene(root);
-            scene.getStylesheets().add(getClass().getResource("/styles/app.css").toExternalForm());
+            // scene.getStylesheets().add(getClass().getResource("/styles/login.css").toExternalForm());
             stage.setScene(scene);
 
             stage.show();
